@@ -1,0 +1,62 @@
+﻿<Window x:Class="Frameworks.View.Login_Registration_Windows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:local="clr-namespace:Frameworks.ViewModel"
+        mc:Ignorable="d"
+        Title="Логін/Реєстрація" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Вхід" Command="{Binding ShowFirstElementsCommand}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Button Content="Реєстрація" Command="{Binding ShowSecondElementsCommand}" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <Label Visibility="{Binding FirstElementsVisibility}" VerticalContentAlignment="Center" Content="Логін: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <TextBox Visibility="{Binding FirstElementsVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding PhoneNumber_E, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <Label Visibility="{Binding FirstElementsVisibility}" VerticalContentAlignment="Center" Content="Пароль: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <TextBox Visibility="{Binding FirstElementsVisibility}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding Password_E, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <Button Visibility="{Binding FirstElementsVisibility}" VerticalContentAlignment="Center" Command="{Binding MyCommand}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="8" Content="Увійти" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="Роль: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="8" Grid.Column="1" />
+        <ComboBox Name="comboBox" Visibility="{Binding SecondElementsVisibility}" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedValue}" VerticalContentAlignment="Center" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="Ім'я: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" />
+        <TextBox Visibility="{Binding SecondElementsVisibility}" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="По-батькові: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" />
+        <TextBox Visibility="{Binding SecondElementsVisibility}" Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="Прізвище: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1" />
+        <TextBox Visibility="{Binding SecondElementsVisibility}" Text="{Binding SurName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="Телефон: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" />
+        <TextBox Visibility="{Binding SecondElementsVisibility}" Text="{Binding PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="Шлях до фото: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="1" />
+        <TextBox Visibility="{Binding SecondElementsVisibility}" Text="{Binding PhotoPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Label Visibility="{Binding SecondElementsVisibility}" VerticalContentAlignment="Center" Content="Пароль: " VerticalAlignment="Stretch" HorizontalAlignment="Center" Grid.Row="7" Grid.Column="1" />
+        <TextBox Visibility="{Binding SecondElementsVisibility}" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5"/>
+        <Button Visibility="{Binding SecondElementsVisibility}" Command="{Binding MyCommand1}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="9" Content="Зареєструватися" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        
+        
+    </Grid>
+</Window>

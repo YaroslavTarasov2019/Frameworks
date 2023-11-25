@@ -1,0 +1,91 @@
+﻿<Window x:Class="Frameworks.View.Courier_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frameworks.View"
+        mc:Ignorable="d"
+        Title="Кур'єр" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer x:Name="MainScrollViewer" Background="AliceBlue" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="23" Grid.RowSpan="12">
+            <StackPanel x:Name="MainStackPanel">
+                <DockPanel>
+                    <Label Content="Статус:" FontSize="20" Width="200" />
+                    <TextBlock Text="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" TextAlignment="Left" Width="1500" />
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="Адреса:" FontSize="20" Width="200" />
+                    <TextBlock Text="{Binding Adress, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" TextAlignment="Left" Width="1500"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="Клієнт:" FontSize="20" Width="200" />
+                    <TextBlock Text="{Binding FullName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" TextAlignment="Left" Width="1500"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="Сума:" FontSize="20" Width="200" />
+                    <TextBlock Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" TextAlignment="Left" Width="1500"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="Номер телефону:" FontSize="20" Width="200" />
+                    <TextBlock Text="{Binding PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" TextAlignment="Left" Width="1500"/>
+                </DockPanel>
+                <DockPanel>
+                    <Button Content="Змінити статус" Command="{Binding ChangeStatusCommand}" Visibility="{Binding ButtonVisibility}" FontSize="20" Width="300"/>
+                </DockPanel>
+                <ItemsControl ItemsSource="{Binding StackPanelItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+        
+    </Grid>
+</Window>

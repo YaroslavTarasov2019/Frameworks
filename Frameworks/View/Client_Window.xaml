@@ -1,0 +1,218 @@
+﻿<Window x:Class="Frameworks.View.Client_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frameworks.View"
+        mc:Ignorable="d"
+        Title="Клієнт"
+        Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Пошук" FontSize="23" Command="{Binding ShowFirstElementsCommand}" HorizontalAlignment="Stretch" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Stretch"/>
+        <Button Content="Заклади харчування" FontSize="23" Command="{Binding ShowSecondElementsCommand}" HorizontalAlignment="Stretch" Grid.Row="4" Grid.ColumnSpan="3" VerticalAlignment="Stretch"/>
+        <Button Content="Кошик" FontSize="23" Command="{Binding ShowThirdElementsCommand}" HorizontalAlignment="Stretch" Grid.Row="5" Grid.ColumnSpan="3" VerticalAlignment="Stretch"/>
+        <Button Content="Мої замовлення" FontSize="23" Command="{Binding ShowFourthElementsCommand}" HorizontalAlignment="Stretch" Grid.Row="6" Grid.ColumnSpan="3" VerticalAlignment="Stretch"/>
+        <Button Content="Мій профіль" FontSize="23" Command="{Binding ShowFifthElementsCommand}" HorizontalAlignment="Stretch" Grid.Row="7" Grid.ColumnSpan="3" VerticalAlignment="Stretch"/>
+
+        <ScrollViewer x:Name="MainScrollViewer" Background="AliceBlue" Visibility="{Binding FirstElementsVisibility}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="21" Grid.RowSpan="12">
+            <StackPanel x:Name="MainStackPanel">
+                <DockPanel>
+                    <Label Content="Введіть початок назви: " DockPanel.Dock="Left" Width="150" Margin="1000, 0, 0, 0"/>
+                    <TextBox Height="30" Width="400" Margin="0, 0, 0, 0" Text="{Binding MyRule, UpdateSourceTrigger=PropertyChanged}"/>
+                </DockPanel>
+                <DockPanel>
+                    <Label Content="Оберіть фільтр: " DockPanel.Dock="Left" Width="150" Margin="1000, 0, 0, 0"/>
+                    <ComboBox Name="comboBox" ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedValue}" Height="30" Width="400"/>
+                </DockPanel>
+                <DockPanel>
+                    <Button Content="&lt;&lt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="700,10,0,0" Command="{Binding Command1}"/>
+                    <Button Content="&lt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="20,10,0,0" Command="{Binding Command2}"/>
+                    <Button Content="." Height="30" Width="30" HorizontalAlignment="Center" Margin="20,10,0,0" IsEnabled="False" />
+                    <Button Content="&gt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="20,10,0,0" Command="{Binding Command4}"/>
+                    <Button Content="&gt;&gt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="20,10,0,0" Command="{Binding Command5}"/>
+                </DockPanel>
+                <ItemsControl ItemsSource="{Binding FirstStackPanelItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="MainScrollViewer2" Background="AliceBlue" Visibility="{Binding SecondElementsVisibility}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="21" Grid.RowSpan="12">
+            <StackPanel x:Name="MainStackPanel2">
+                <DockPanel>
+                    <Button Content="&lt;&lt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="700,10,0,0" Command="{Binding Command1Izmenit}"/>
+                    <Button Content="&lt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="20,10,0,0" Command="{Binding Command2Izmenit}"/>
+                    <Button Content="." Height="30" Width="30" HorizontalAlignment="Center" Margin="20,10,0,0" IsEnabled="False" />
+                    <Button Content="&gt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="20,10,0,0" Command="{Binding Command4Izmenit}"/>
+                    <Button Content="&gt;&gt;" Height="30" Width="30" HorizontalAlignment="Left" Margin="20,10,0,0" Command="{Binding Command5Izmenit}"/>
+                </DockPanel>
+                <ItemsControl ItemsSource="{Binding SecondStackPanelItems}" Margin="0, 80, 0, 0">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="MainScrollViewer3" Background="AliceBlue" Visibility="{Binding ThirdElementsVisibility}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="21" Grid.RowSpan="12">
+            <StackPanel x:Name="MainStackPanel3">
+                <DockPanel>
+                    <Label Height="Auto" Width="Auto" HorizontalAlignment="Center" FontSize="30" Content="Кошик"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <Label DockPanel.Dock="Left" Content="Введіть адресу: " Height="30" VerticalContentAlignment="Center"/>
+                    <TextBox DockPanel.Dock="Left" Margin="10" Width="300" Height="30" Text="{Binding AdressOrder}"/>
+                    <Button DockPanel.Dock="Right" Margin="10" Width="300" Height="30" Content="Замовити" Command="{Binding ToOrder}"/>
+                </DockPanel>
+                <ItemsControl ItemsSource="{Binding ThirdStackPanelItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer x:Name="MainScrollViewer4" Background="AliceBlue" Visibility="{Binding FourthElementsVisibility}" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="21" Grid.RowSpan="12">
+            <StackPanel x:Name="MainStackPanel4">
+                <DockPanel HorizontalAlignment="Center">
+                    <Label Height="Auto" Width="Auto" FontSize="30" Content="Мої замовлення"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <Button Height="30" Width="100" Content="Попередній" DockPanel.Dock="Left" Margin="10" Command="{Binding PrevOrderCommand}"/>
+                    <Button Height="30" Width="100" Content="Наступний" DockPanel.Dock="Right" Margin="10" Command="{Binding NextOrderCommand}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center">
+                    <Button Height="30" Width="220" Content="Підтвердити доставку" Command="{Binding DoneDelivery}" Visibility="{Binding DoneDeliveryVisibility}"/>
+                </DockPanel>
+                <DockPanel HorizontalAlignment="Center" Margin="20">
+                    <TextBlock Height="30" Width="200" HorizontalAlignment="Right" Text="Статус замовлення: " FontSize="20" />
+                    <TextBlock Height="30" Width="100" HorizontalAlignment="Left" Text="{Binding OrderStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="20" />
+                </DockPanel>
+                <ItemsControl ItemsSource="{Binding FourthStackPanelItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+
+
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid Visibility="{Binding FifthElementsVisibility}" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="20" Grid.RowSpan="12" Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Роль:" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" FontSize="20" />
+            <TextBox Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="4" Text="{Binding Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" FontSize="30" TextAlignment="Center" Margin="5" />
+
+            <Label Content="Ім'я:" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" FontSize="20" />
+            <TextBox Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="4" Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" TextAlignment="Center" Margin="5" />
+
+            <Label Content="Прізвище:" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" FontSize="20" />
+            <TextBox Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="4" Text="{Binding SurName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" TextAlignment="Center" Margin="5" />
+
+            <Label Content="По-батькові:" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" FontSize="20" />
+            <TextBox Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="4" Text="{Binding SecondName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" TextAlignment="Center" Margin="5" />
+
+            <Label Content="Номер телефону:" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" FontSize="20" />
+            <TextBox Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="4" Text="{Binding PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="30" TextAlignment="Center" Margin="5" />
+
+            <Image Grid.Row="1" Grid.RowSpan="10" Grid.Column="10" Grid.ColumnSpan="9" Source="{Binding MyImageSource}" Margin="10" />
+
+
+        </Grid>
+
+        <Image Grid.Column="0" Grid.ColumnSpan="4" Margin="10,38,68,56" Grid.RowSpan="3" Grid.Row="0" Source="/Photo/LOGO.png" Stretch="Uniform" StretchDirection="Both"/>
+        <Label Content="Just order" Grid.ColumnSpan="3" Margin="50,76,38,38" Grid.RowSpan="2" Grid.Row="1" FontSize="20" Height="100" VerticalContentAlignment="Top" Width="140" HorizontalContentAlignment="Center" />
+    </Grid>
+</Window>
